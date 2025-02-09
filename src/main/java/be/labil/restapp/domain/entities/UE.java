@@ -1,5 +1,6 @@
 package be.labil.restapp.domain.entities;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -26,9 +27,9 @@ public class UE {
     private Long id;
 
     @Column(length = 100)
-    private String nom;
+    private String intitule;
 
     @OneToMany(mappedBy = "ue", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Matiere> matieres;
+    private Set<Matiere> matieres = new LinkedHashSet<>();
 
 }

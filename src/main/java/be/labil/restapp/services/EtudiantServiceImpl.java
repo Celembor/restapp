@@ -19,6 +19,7 @@ public class EtudiantServiceImpl implements IEtudiantService {
 
     private final IEtudiantRepository iEtudiantRepository;
     private final IEtudiantMapper iEtudiantMapper;
+    
     @Override
     public Etudiant insert(Etudiant etudiant) {
         return iEtudiantRepository.save(etudiant);

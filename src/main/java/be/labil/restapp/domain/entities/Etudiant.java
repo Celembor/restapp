@@ -1,5 +1,6 @@
 package be.labil.restapp.domain.entities;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import jakarta.persistence.*;
@@ -31,5 +32,5 @@ public class Etudiant {
     private String masterType;
 
     @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Note> notes;
+    private Set<Note> notes = new LinkedHashSet<>();
 }
