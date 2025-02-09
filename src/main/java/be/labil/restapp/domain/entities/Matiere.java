@@ -2,6 +2,7 @@ package be.labil.restapp.domain.entities;
 
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public class Matiere {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 50)
+    @Column(length = 100)
     private String intitule;
 
     private int credit;
@@ -33,7 +34,7 @@ public class Matiere {
     @ManyToOne
     private UE ue;
 
-    @OneToMany
+    @OneToMany(mappedBy = "matiere", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Note> notes;
 
 }

@@ -1,5 +1,7 @@
 package be.labil.restapp.domain.entities;
 
+import java.util.Set;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,4 +30,6 @@ public class Etudiant {
     @Column(length = 100)
     private String masterType;
 
+    @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Note> notes;
 }
