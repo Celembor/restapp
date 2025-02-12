@@ -11,5 +11,4 @@ public class MatiereDto implements Serializable {
     String intitule;
     int credit;
     UEDto ue;
-    Set<NoteDto> notes;
 }

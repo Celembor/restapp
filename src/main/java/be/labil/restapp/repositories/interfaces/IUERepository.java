@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import be.labil.restapp.domain.entities.UE;
 
-@Repository
 public interface IUERepository extends JpaRepository<UE, Long> {
 
 }

@@ -17,5 +17,5 @@ public class EtudiantDto implements Serializable {
     String matricule;
     String nom;
     String prenom;
-    Set<NoteDto> notes;
+    String deliberation;
 }

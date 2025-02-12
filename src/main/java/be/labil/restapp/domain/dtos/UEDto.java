@@ -9,5 +9,4 @@ import java.util.Set;
 public class UEDto implements Serializable {
     Long id;
     String intitule;
-    Set<MatiereDto> matieres;
 }

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import be.labil.restapp.domain.entities.Matiere;
 
-@Repository
 public interface IMatiereRepository extends JpaRepository<Matiere, Long> {
 
 }

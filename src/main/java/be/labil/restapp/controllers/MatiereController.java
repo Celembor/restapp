@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Tag(name = "Matière", description = "L'API des matières")
 @RestController
-@RequestMapping("/matière")
+@RequestMapping("/matiere")
 @AllArgsConstructor
 public class MatiereController {
 

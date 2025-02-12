@@ -3,6 +3,7 @@ package be.labil.restapp.domain.entities;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,14 +12,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "UE")
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class UE {
 
@@ -29,7 +30,7 @@ public class UE {
     @Column(length = 100)
     private String intitule;
 
-    @OneToMany(mappedBy = "ue", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Matiere> matieres = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "ue")
+    private Set<Matiere> matieres;
 
 }

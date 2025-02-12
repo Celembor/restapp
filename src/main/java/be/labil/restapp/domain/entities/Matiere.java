@@ -3,23 +3,17 @@ package be.labil.restapp.domain.entities;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "MATIERE")
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class Matiere {
 
@@ -33,9 +27,10 @@ public class Matiere {
     private int credit;
 
     @ManyToOne
+    @JoinColumn(name = "ue_id")
     private UE ue;
 
-    @OneToMany(mappedBy = "matiere", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Note> notes = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "matiere")
+    private Set<Note> notes;
 
 }

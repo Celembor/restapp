@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import be.labil.restapp.domain.entities.Note;
 
-@Repository
 public interface INoteRepository extends JpaRepository<Note, Long> {
 
 }
