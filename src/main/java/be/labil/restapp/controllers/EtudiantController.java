@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
@@ -46,5 +47,11 @@ public class EtudiantController {
     Boolean delete(@PathVariable Long id) {
         return iEtudiantService.delete(id);
     }
+
+    @GetMapping("/deliberation/{id}")
+    ResponseEntity<String> deliberation(@PathVariable Long id) {
+        return ResponseEntity.ok(iEtudiantService.deliberation(id));
+    }
+
 
 }

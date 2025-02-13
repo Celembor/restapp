@@ -11,8 +11,4 @@ import java.util.Set;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel. SPRING )
 public interface IEtudiantMapper extends IGenericMapper<EtudiantDto, Etudiant> {
-    @Mapping(target = "deliberation", expression = "java(etudiant.deliberation())")
-    EtudiantDto toDto(Etudiant etudiant);
-    @Mapping(target = "deliberation", expression = "java(etudiant.deliberation())")
-    Set<EtudiantDto> toDto(Set<Etudiant> entities);
 }

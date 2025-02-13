@@ -2,14 +2,17 @@ package be.labil.restapp.services;
 
 import be.labil.restapp.domain.dtos.EtudiantDto;
 import be.labil.restapp.domain.entities.Etudiant;
+import be.labil.restapp.domain.entities.Note;
 import be.labil.restapp.domain.mappers.IEtudiantMapper;
 import be.labil.restapp.repositories.interfaces.IEtudiantRepository;
+import be.labil.restapp.repositories.interfaces.INoteRepository;
 import be.labil.restapp.services.interfaces.IEtudiantService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Slf4j
@@ -51,4 +54,35 @@ public class EtudiantServiceImpl implements IEtudiantService {
         iEtudiantRepository.deleteById(id);
         return true;
     }
+
+    private Double getMoyennePonderee(Long id) {
+
+        Etudiant etudiant = iEtudiantRepository.findById(id).orElseThrow(() -> new RuntimeException("Etudiant inconnu"));
+        Set<Note> notes = etudiant.getNotes();
+
+        if (notes == null || notes.isEmpty()) {
+            return -1.0; // Retourne 0 si l'étudiant n'a pas de notes
+        }
+
+        double totalPoints = 0.0;
+        double totalCredits = 0.0;
+
+        for (Note note : notes) {
+            totalPoints += note.getValeur() * note.getMatiere().getCredit();
+            totalCredits += note.getMatiere().getCredit();
+        }
+
+        return totalCredits > 0 ? totalPoints / totalCredits : 0.0;
+    }
+
+    @Override
+    public String deliberation(Long id) {
+        double moyenne = this.getMoyennePonderee(id);
+        if (moyenne == -1.0) {
+            return "Pas de notes disponibles pour l'étudiant";
+        } else {
+            return moyenne >= 10.0 ? "REUSSITE" : "ECHEC";
+        }
+    }
+
 }

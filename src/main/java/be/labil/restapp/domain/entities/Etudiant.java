@@ -34,28 +34,4 @@ public class Etudiant {
     @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL)
     private Set<Note> notes;
 
-    private Double getMoyennePonderee() {
-        if (notes == null || notes.isEmpty()) {
-            return -1.0; // Retourne 0 si l'étudiant n'a pas de notes
-        }
-
-        double totalPoints = 0.0;
-        double totalCredits = 0.0;
-
-        for (Note note : notes) {
-            totalPoints += note.getValeur() * note.getMatiere().getCredit();  // Valeur * Crédits
-            totalCredits += note.getMatiere().getCredit();  // Somme des crédits
-        }
-
-        return totalCredits > 0 ? totalPoints / totalCredits : 0.0;
-    }
-
-    public String deliberation() {
-        if (this.getMoyennePonderee() == -1.0) {
-            return "Pas de notes disponibles pour l'étudiant";
-        } else {
-            return this.getMoyennePonderee() >= 10.0 ? "REUSSITE" : "ECHEC";
-        }
-    }
-
 }

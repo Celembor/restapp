@@ -15,4 +15,5 @@ public interface IEtudiantService {
 
     Boolean delete(Long id);
 
+    String deliberation(Long id);
 }
