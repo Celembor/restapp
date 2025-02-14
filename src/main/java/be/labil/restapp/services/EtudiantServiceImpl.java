@@ -5,14 +5,12 @@ import be.labil.restapp.domain.entities.Etudiant;
 import be.labil.restapp.domain.entities.Note;
 import be.labil.restapp.domain.mappers.IEtudiantMapper;
 import be.labil.restapp.repositories.interfaces.IEtudiantRepository;
-import be.labil.restapp.repositories.interfaces.INoteRepository;
 import be.labil.restapp.services.interfaces.IEtudiantService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 @Slf4j

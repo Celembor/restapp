@@ -1,6 +1,5 @@
 package be.labil.restapp.domain.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 

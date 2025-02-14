@@ -3,7 +3,6 @@ package be.labil.restapp.domain.dtos;
 import lombok.Value;
 
 import java.io.Serializable;
-import java.util.Set;
 
 @Value
 public class UEDto implements Serializable {

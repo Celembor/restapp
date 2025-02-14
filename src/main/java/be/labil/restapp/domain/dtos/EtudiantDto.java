@@ -4,7 +4,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Value;
 
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * DTO for {@link be.labil.restapp.domain.entities.Etudiant}
