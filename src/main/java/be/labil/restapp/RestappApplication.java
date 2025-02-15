@@ -1,19 +1,7 @@
 package be.labil.restapp;
 
-import java.nio.charset.StandardCharsets;
-
-import be.labil.restapp.domain.entities.Etudiant;
-import be.labil.restapp.domain.entities.Note;
-import be.labil.restapp.domain.entities.UE;
-import be.labil.restapp.domain.entities.Matiere;
-import be.labil.restapp.repositories.interfaces.IEtudiantRepository;
-import be.labil.restapp.repositories.interfaces.IMatiereRepository;
-import be.labil.restapp.repositories.interfaces.INoteRepository;
-import be.labil.restapp.repositories.interfaces.IUERepository;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class RestappApplication {
