@@ -9,5 +9,4 @@ public class MatiereDto implements Serializable {
     Long id;
     String intitule;
     int credit;
-    UEDto ue;
 }
